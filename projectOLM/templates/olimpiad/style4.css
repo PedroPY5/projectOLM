@@ -1,0 +1,21 @@
+body{padding: 0;margin: 0;font-family: 'Montserrat Alternates', sans-serif;}
+.block{width: 980px;height: 99px;position: relative;}
+.logo{position: absolute;left: 150px;top: 33px;}
+.logo:nth-child(2){font-size: 20px;left: 205px;top: 25px;color: #0B132A;font-family: 'Urbanist', sans-serif;letter-spacing: 0.8px;}
+span{color: #F14052;font-weight: 500;}
+.list{position: absolute;top: 33px;left: 45%;}
+ul li{list-style-type: none; display: inline; padding: 10px;}
+ul li a{text-decoration: none;color: #4F5665;font-family: 'Montserrat Alternates', sans-serif;font-size: 14px;}
+ul li a:hover{color: #0B132A;transition: 0.6s;}
+.item{height: 600px;background: #e6e6e6;position: relative;}
+.item_1 {height: 600px;background: white;padding: 0px 30px;position: relative;}
+.text{font-size: 35px;position: absolute;top: 40%;left: 25%;font-family: 'Montserrat Alternates', sans-serif;font-weight: 800;color: #4F5665;}
+h3{font-family: 'Montserrat Alternates', sans-serif;font-weight: normal;}
+input[type='radio'],label{cursor: pointer;}
+input[type='radio']{position: relative;height: 15px;width: 15px;-webkit-appearance: none;-moz-appearance: none;appearance: none;outline: none;right: 5px;}
+input[type='radio']::before{content: '';position: absolute;top: 50%;left: 50%;width: 20px;height: 20px;border-radius: 50%;transform: translate(-50%, -50%);background-color: white;border: 2px solid #FFB878;;}
+input[type='radio']:checked::after{content: '';position: absolute;top: 50%;left: 50%;width: 13px;height: 13px;border-radius: 50%;background-color: #FFB878;;transform: translate(-50%, -50%);visibility: visible;}
+input[type='checkbox'],label{cursor: pointer;}
+input[type='checkbox']{position: relative;height: 15px;width: 15px;-webkit-appearance: none;-moz-appearance: none;appearance: none;outline: none;right: 5px;}
+input[type='checkbox']::before{content: '';position: absolute;top: 70%;left: 50%;width: 20px;height: 20px;transform: translate(-50%, -50%);background-color: white;border: 2px solid #FFB878;;}
+input[type='checkbox']:checked::after{content: '\2714';position: absolute;top: 50%;left: 50%;width: 10px;height: 13px;transform: translate(-50%, -50%);visibility: visible;}

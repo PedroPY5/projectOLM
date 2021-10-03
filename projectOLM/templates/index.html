@@ -1,0 +1,38 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;500&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;800&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+    <div class="block" background-image= url('/media/images/pic2.gif')>
+        <img src="{% static 'icons/share.svg'%} " height="50" width="50" class="logo"><p class="logo">lympia<span>d</span></p>
+        <header>
+            <ul class="list">
+                <li><a href="">Главная</a></li>
+                <li><a href="">Новости</a></li>
+                <li><a href="">Журнал</a></li>
+                <li><a href="/tester">Олимпиады</a></li>
+                <li><a href="">Помощь</a></li>
+            </ul>
+            {% if request.user.is_authenticated %} 
+		<p class="signup"><a href="/accounts/logout">LogOut</a></p> 
+            {% else %}
+	  	<p class="signup"><a href="/accounts/register">SignUp</a></p> 
+	    {% endif %}
+        </header>
+        <p class="textp">Ваши дети - <br/>наше будущее</p>
+        <p class="textz">Студенческие олимпиады: всероссийские,<br/> международные, дистанционные</p>
+        <button class="btn"><a href="#">Полезно знать</a></button>
+    </div>
+    
+</body>
+</html>

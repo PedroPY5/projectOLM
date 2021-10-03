@@ -1,0 +1,68 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Олимпиады</title>
+    <link rel="stylesheet" href="{% static 'style4.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;500&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;800&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+        <div class="block" class="block" background=url("{% static 'images/pic2.gif' %}")>
+            <img src="../icons/share.svg" height="50" width="50" class="logo"><p class="logo">lympia<span>d</span></p>
+            <header>
+                <ul class="list">
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Журнал</a></li>
+                    <li><a href="olimpiad/olimp.html">Олимпиады</a></li>
+                    <li><a href="">Помощь</a></li>
+                </ul>
+            </header>
+        </div>
+        <div class="item">
+            <p class="text"> 
+		{% if g %} 
+			Вы уже прошли тест, ваш результат - {{g}};
+			Сертификат олимпиады отправлен на вашу почту, 
+				Спасибо за участие
+		{% else %}
+			Время пройти тест, вы готовы?
+		{% endif %}</p>
+        </div>
+	
+	<form method="POST" action="check">
+	{% csrf_token %}
+        <div class="item_1">
+		
+  
+
+		{% for i in b %}
+		
+		<h3>{{forloop.counter}}. {{i.text_question}}</h3>
+		{% if i|stringformat:'s' == 'radiobutton' %}
+			{% for j in i.list_choosing %}
+				<p><input type="radio" value="{{j}}" name="{{forloop.parentloop.counter}}"/>{{ j }}</p>	
+			{% endfor %}
+		
+                
+		{% elif i|stringformat:'s' == 'multibutton' %}
+		<p><input type="checkbox" name=""/>в FAT</p>
+                <p><input type="checkbox" name=""/>в boot sector</p>
+                <p><input type="checkbox" name=""/>в корневой каталог</p>
+		{% else %}
+		{{i}}
+		{% endif %}
+		{% endfor %}
+            
+        </div>
+		<input type="submit"></input>
+	</form>
+    <script src=""></script>
+</body>
+</html>

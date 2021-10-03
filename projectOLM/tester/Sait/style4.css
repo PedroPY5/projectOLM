@@ -1,0 +1,16 @@
+body{padding: 0;margin: 0;}
+.block{background: url(images/pic2.gif);width: 980px;height: 99vh;background-size: cover;color: rgb(16,  95,  154);position: relative;}
+.logo{position: absolute;left: 150px;top: 33px;}
+.logo:nth-child(2){font-size: 20px;left: 205px;top: 25px;color: #0B132A;font-family: 'Urbanist', sans-serif;letter-spacing: 0.8px;}
+span{color: #F14052;font-weight: 500;}
+.list{position: absolute;top: 33px;left: 45%;}
+ul li{list-style-type: none; display: inline; padding: 10px;}
+ul li a{text-decoration: none;color: #4F5665;font-family: 'Montserrat Alternates', sans-serif;font-size: 14px;}
+ul li a:hover{color: #0B132A;transition: 0.6s;}
+.textp{position: absolute;right:-40%;top: 180px;font-size: 50px;font-family: 'Montserrat Alternates', sans-serif;color: #105f9a;font-weight: 800;letter-spacing: 2px;}
+.textz{position: absolute;right:-37%;top: 355px;font-family: 'Montserrat Alternates', sans-serif; letter-spacing: 1.5px;}
+button{border: none;height: 40px;width: 140px;position: absolute;right: -35%;top: 450px;border-radius: 10px;background: #105F9A;}
+button a{text-decoration: none;color: white;font-family: 'Montserrat Alternates', sans-serif;}
+.signup{position: absolute;top: 33px;right: -35%;font-family: 'Montserrat Alternates', sans-serif;font-size: 16px;}
+.signup a{text-decoration: none;color: #0B132A;}
+.signup a:hover{color: #105F9A;transition: 0.6s;}

@@ -1,0 +1,11 @@
+body{padding: 0;margin: 0;}
+.block{width: 980px;height: 99px;position: relative;}
+.logo{position: absolute;left: 150px;top: 33px;}
+.logo:nth-child(2){font-size: 20px;left: 205px;top: 25px;color: #0B132A;font-family: 'Urbanist', sans-serif;letter-spacing: 0.8px;}
+span{color: #F14052;font-weight: 500;}
+.list{position: absolute;top: 33px;left: 45%;}
+ul li{list-style-type: none; display: inline; padding: 10px;}
+ul li a{text-decoration: none;color: #4F5665;font-family: 'Montserrat Alternates', sans-serif;font-size: 14px;}
+ul li a:hover{color: #0B132A;transition: 0.6s;}
+.item{height: 600px;background: #e6e6e6;position: relative;}
+.text{font-size: 35px;position: absolute;top: 40%;left: 25%;font-family: 'Montserrat Alternates', sans-serif;font-weight: 800;color: #4F5665;}
