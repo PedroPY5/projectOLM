@@ -27,7 +27,7 @@
         </div>
         <div class="item">
             <p class="text"> 
-		{% if g %} 
+		{% if g > -1 %} 
 			Вы уже прошли тест, ваш результат - {{g}};
 			Сертификат олимпиады отправлен на вашу почту, 
 				Спасибо за участие
@@ -52,9 +52,11 @@
 		
                 
 		{% elif i|stringformat:'s' == 'multibutton' %}
-		<p><input type="checkbox" name=""/>в FAT</p>
-                <p><input type="checkbox" name=""/>в boot sector</p>
-                <p><input type="checkbox" name=""/>в корневой каталог</p>
+			{% for j in i.list_choosing %}
+				<p><input type="checkbox" value="{{j}}" name="{{forloop.parentloop.counter}}"/>{{ j }}</p>	
+			{% endfor %}
+		{% elif i|stringformat:'s' == 'text' %}
+			<p><input type="text" name="{{forloop.parentloop.counter}}"></p>s
 		{% else %}
 		{{i}}
 		{% endif %}

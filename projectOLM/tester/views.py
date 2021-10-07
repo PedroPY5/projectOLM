@@ -28,9 +28,12 @@ def index(request):
          b  = []
          #render(request, 'index1.html')
          alpha = Profile.objects.get(user_id=request.user.id)
+         print('dadas')
+         print(alpha.points)
          if alpha:
             h = {'g': alpha.points}
-         else: pass
+         else:
+            h = {'g:': -1}
          return render(request, 'olimp.html', context=h)
    else: #*** - если не авторизован, то переход на регистрацию
       return HttpResponseRedirect('/accounts/register')
