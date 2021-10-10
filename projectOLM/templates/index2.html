@@ -11,6 +11,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;800&display=swap" rel="stylesheet"> 
 </head>
+<script>
+	//document.getElementById("id_education_place").options.length=0;
+	function f(){
+	var e = document.getElementById("id_town_name_of_EduPlace");
+	var strUser = e.options[e.selectedIndex].value;
+	//alert(document.getElementById("id_town_name_of_EduPlace").value);
+	var xhr = new XMLHttpRequest();
+	
+	xhr.open('GET', 'http://localhost:8000/accounts/getEduPlace', false);
+	//xhr.setRequestHeader("Content-Type", "application/json");
+	//xhr.setRequestHeader("Accept", "application/json");
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');	
+	var a = document.getElementById("id_town_name_of_EduPlace");
+	var valueA = a.options[a.selectedIndex].value;
+	var data = JSON.stringify({'town': valueA});
+	//alert(data['town']);
+	//alert(valueA);
+	
+	xhr.send(data);
+	
+	if (xhr.status != 200){
+	alert('Повторите попытку позже.');
+	}
+	else{
+	
+ 	data = JSON.parse(xhr.responseText);
+	
+	document.getElementById("id_education_place").options.length=0;	
+	var sel = document.getElementById("id_education_place");
+	newOption = new Option('--------', '');
+  	//sel.append(newOption);
+	for (let j = 0; j < data['EP'].length;j++){
+		newOption = new Option( data['EP'][j][1], data['EP'][j][0]);
+  		//newOption = new Option( j, j);
+		sel.append(newOption);
+	}
+
+
+	}
+	}
+	
+</script>
 <body>
         <div class="container" id="container">
         <div class="form-container sign-up-container">
@@ -24,16 +66,16 @@
             <input type="email" placeholder="Email"/>
             <input type="password" placeholder="Пароль"/> --!>
             {% csrf_token %}
-		
+	    {{ form2.last_name }}
             {{ form2.username }}
 	    {{ form2.email }}
-	    paroli
+	    пароль (не менее 8 символов)
 	    {{ form2.password1 }}
 	    {{ form2.password2 }}
-	    tovuni
-	    {{ edu.education_place }}
-	    {{ edu.town_name_of_EduPlace }} 
-	    {{ edu.group }}
+	    
+	    <div>Город, школа, класс {{ edu.town_name_of_EduPlace }} </div>
+	    {{ edu.education_place }} 
+	    {{ edu.group }} 
 	    
 	    <button type="submit">зарегистрироваться</button>
             </form>

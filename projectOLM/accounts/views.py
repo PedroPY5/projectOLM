@@ -1,7 +1,9 @@
+#from django.core.serializers import json
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from projectOLM.forms import UserRegisterForm, UserAuthForm, EduForm
 from django.contrib.auth import login, authenticate, logout
-#from . forms import EduForm
+from django.http import JsonResponse
+from .models import EducationPlace, Town
 def register(request):
     if request.method == "POST":
         #form = UserRegisterForm()
@@ -65,3 +67,22 @@ def register(request):
 def logoutU(request):
     logout(request)
     return HttpResponseRedirect('/')
+def getEduPlace(request):
+    getObj = "г. Тихвин"
+    TownObj = Town.objects.get(town_name=getObj)
+    print(request.body)
+
+    #print(request)
+    import json
+    #jb = json.load(request)
+    #print(jb)
+    EducationPlaceObjs = EducationPlace.objects.filter(town_id=TownObj.id)
+    #j = 1
+    jsonfileObj = {}
+    iter = 1
+    jsonfileObj['EP'] = []
+    for i in EducationPlaceObjs:
+       jsonfileObj['EP'].append([i.id, str(i)])
+    print(len(EducationPlaceObjs))
+    print('_------------------------------_')
+    return JsonResponse(jsonfileObj)
