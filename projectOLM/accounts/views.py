@@ -68,15 +68,15 @@ def logoutU(request):
     logout(request)
     return HttpResponseRedirect('/')
 def getEduPlace(request):
-    getObj = "г. Тихвин"
-    TownObj = Town.objects.get(town_name=getObj)
-    print(request.body)
+    #getObj = "г. Тихвин"
+    #TownObj = Town.objects.get(town_name=getObj)
 
+    print(request.GET)
     #print(request)
     import json
     #jb = json.load(request)
     #print(jb)
-    EducationPlaceObjs = EducationPlace.objects.filter(town_id=TownObj.id)
+    EducationPlaceObjs = EducationPlace.objects.filter(town_id=request.GET['town'])
     #j = 1
     jsonfileObj = {}
     iter = 1

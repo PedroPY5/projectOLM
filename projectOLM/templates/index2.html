@@ -18,18 +18,23 @@
 	var strUser = e.options[e.selectedIndex].value;
 	//alert(document.getElementById("id_town_name_of_EduPlace").value);
 	var xhr = new XMLHttpRequest();
-	
-	xhr.open('GET', 'http://localhost:8000/accounts/getEduPlace', false);
-	//xhr.setRequestHeader("Content-Type", "application/json");
-	//xhr.setRequestHeader("Accept", "application/json");
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');	
 	var a = document.getElementById("id_town_name_of_EduPlace");
-	var valueA = a.options[a.selectedIndex].value;
-	var data = JSON.stringify({'town': valueA});
-	//alert(data['town']);
-	//alert(valueA);
+	xhr.open('GET', 'http://localhost:8000/accounts/getEduPlace?town='+a.options[a.selectedIndex].value, false);
+	//xhr.responseType = "json";
+
+	//var csrfToken = tryout.getResponseHeader('x-csrf-token');   
+
+  	//xhr.setRequestHeader('x-csrf-token', csrfToken);
+
+	xhr.setRequestHeader('Content-Type', "application/json");
 	
-	xhr.send(data);
+	//var valueA = a.options[a.selectedIndex].value;
+	//var s = {town :valueA};
+	//var data = JSON.stringify({town :valueA});
+	//alert(data["town"]);
+	//alert(data);
+	
+	xhr.send('s=s');
 	
 	if (xhr.status != 200){
 	alert('Повторите попытку позже.');
