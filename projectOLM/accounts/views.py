@@ -70,19 +70,21 @@ def logoutU(request):
 def getEduPlace(request):
     #getObj = "г. Тихвин"
     #TownObj = Town.objects.get(town_name=getObj)
-
-    print(request.GET)
-    #print(request)
-    import json
-    #jb = json.load(request)
-    #print(jb)
-    EducationPlaceObjs = EducationPlace.objects.filter(town_id=request.GET['town'])
-    #j = 1
-    jsonfileObj = {}
-    iter = 1
-    jsonfileObj['EP'] = []
-    for i in EducationPlaceObjs:
-       jsonfileObj['EP'].append([i.id, str(i)])
-    print(len(EducationPlaceObjs))
-    print('_------------------------------_')
-    return JsonResponse(jsonfileObj)
+    try:
+        print(request.GET)
+        #print(request)
+        import json
+        #jb = json.load(request)
+        #print(jb)
+        EducationPlaceObjs = EducationPlace.objects.filter(town_id=request.GET['town'])
+        #j = 1
+        jsonfileObj = {}
+        iter = 1
+        jsonfileObj['EP'] = []
+        for i in EducationPlaceObjs:
+           jsonfileObj['EP'].append([i.id, str(i)])
+        print(len(EducationPlaceObjs))
+        print('_------------------------------_')
+        return JsonResponse(jsonfileObj)
+    except Exception:
+        return HttpResponse('404')

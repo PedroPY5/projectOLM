@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    <link rel="stylesheet" href="{% static 'style2.css'%}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200;500&display=swap" rel="stylesheet"> 
@@ -11,8 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;800&display=swap" rel="stylesheet"> 
 </head>
-<body>
-	<script>
+<script>
 	//document.getElementById("id_education_place").options.length=0;
 	function f(){
 	var e = document.getElementById("id_town_name_of_EduPlace");
@@ -59,6 +58,7 @@
 	}
 	
 </script>
+<body>
         <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="/accounts/register" method="POST" >
@@ -77,40 +77,41 @@
 	    пароль (не менее 8 символов)
 	    {{ form2.password1 }}
 	    {{ form2.password2 }}
-		Город, школа, класс 
-		{{ edu.town_name_of_EduPlace }} 
+	    
+	    <div>Город, школа, класс {{ edu.town_name_of_EduPlace }} </div>
 	    {{ edu.education_place }} 
 	    {{ edu.group }} 
-			<div class="checkbox">
-                    <input id="check1" type="checkbox" name="check" value="check1">
-                    <label for="check1" class="check__1">Cогласен на обработку персональных данных</label>
-                </div>
-                <button type="submit">зарегистрироваться</button>
+	    
+	    <button type="submit">зарегистрироваться</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
-                <a href="../index.html"><img src="../icons/up-arrow (1).svg" alt="" height="40" width="40" class="img"></a>
-            <h1>Авторизация</h1>
+            <form action="/accounts/register" method="POST">
+            {% if h %}
+		Для прохождения теста необходимо войти
+		
+	    {% endif %}	
+		{% csrf_token %}
+	    {{ form1.as_p }}
+	    <!--<h1>Авторизация</h1>
             <span>Используйте свой аккаунт</span>
-            <input type="email" placeholder="Email"/>
-            <input type="password" placeholder="Пароль"/>
-            <a href="#">Забыли свой пароль?</a>
-            <button>Войти</button>
+            <input type="email" name="login" placeholder="Email"/>
+            <input type="password" name="password" placeholder="Пароль"/>
+            <a href="#">Забыли свой пароль?</a>--!>
+            <button type="submit">Войти</button>
             </form>
         </div>
         <div class="overlay-container">
             <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <a href="../index.html"><img src="../icons/up-arrow.svg" alt="" height="40" width="40" class="img"></a>
-                    <h1>Добро пожаловать!</h1>
-                    <button class="ghost" id="signIn">Войти</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Привет!</h1>
-                    <p>Нет своего аккаунта?</p>
-                    <button class="ghost" id="signUp">Создать</button>
-                </div>
+            <div class="overlay-panel overlay-left">
+                <h1>Добро пожаловать!</h1>
+                <button class="ghost" id="signIn">Войти</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Привет!</h1>
+                <p>Нет своего аккаунта?</p>
+                <button class="ghost" id="signUp">Создать</button>
+            </div>
             </div>
         </div>
         </div>
